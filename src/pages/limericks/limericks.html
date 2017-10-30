@@ -5,14 +5,17 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>limericks</ion-title>
-  </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-list class= "limericks_width">
+      <ion-item *ngFor="let limerick of limericks" (click)="openDetails(limerick)">
+        <!-- <img src="{{limerick.thumbnail}}" alt="" class="title_pic"/> -->
+
+        <div class="title1" [innerHTML] = "limerick.content"></div>
+      </ion-item>
+    </ion-list>
 
 </ion-content>

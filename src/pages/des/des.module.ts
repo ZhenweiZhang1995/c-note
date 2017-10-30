@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { DigitalPage } from './digital';
+import { DesPage } from './des';
 
 @NgModule({
   declarations: [
-    DigitalPage,
+    DesPage,
   ],
   imports: [
-    IonicPageModule.forChild(DigitalPage),
+    IonicPageModule.forChild(DesPage),
   ],
 })
-export class DigitalPageModule {}
+export class DesPageModule {}

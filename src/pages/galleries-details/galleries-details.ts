@@ -19,9 +19,4 @@ export class GalleriesDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.gallery = this.navParams.get('gallery');
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GalleriesDetailsPage');
-  }
-
 }

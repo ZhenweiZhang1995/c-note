@@ -20,8 +20,4 @@ export class NewsDetailsPage {
     this.new1 = this.navParams.get('new1');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewsDetailsPage');
-  }
-
 }

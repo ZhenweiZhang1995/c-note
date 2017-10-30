@@ -19,5 +19,11 @@ export class HomePage {
   sports: any = "SportsPage";
   galleries: any = "GalleriesPage";
   obituaries: any = "ObituariesPage";
+  podcast: any = "PodcastPage";
+  underwriting: any = "UnderwritingPage";
+  editorials: any = "EditorialsPage";
+  des: any = "DesPage";
+  videos: any = "VideosPage";
+  limericks: any = "LimericksPage";
 
 }

@@ -1,0 +1,21 @@
+<!--
+  Generated template for the DesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list class= "des_width">
+    <ion-item *ngFor="let de of des" (click)="openDetails(de)">
+      <img src="{{de.thumbnail}}" alt="" class="title_pic"/>
+
+      <div class="title" [innerHTML] = "de.title_plain"></div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

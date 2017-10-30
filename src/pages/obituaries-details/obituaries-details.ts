@@ -19,9 +19,4 @@ export class ObituariesDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.post = this.navParams.get('post');
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ObituariesDetailsPage');
-  }
-
 }
