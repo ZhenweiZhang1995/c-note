@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "239059696185",
+    "firebase_url": "https://news-reporter-22b34.firebaseio.com",
+    "project_id": "news-reporter-22b34",
+    "storage_bucket": "news-reporter-22b34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239059696185:android:f8c032d673dd2acd",
+        "android_client_info": {
+          "package_name": "io.zhenwei.news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239059696185-0i5hne0kcatoq983u1qi6t2rlq385c81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe-dKx9qxWbnlZtOI3nygssyMlG3molwo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,12 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SettingsPage } from '../pages/settings/settings';
-import { ObituariesDetailsPage } from '../pages/obituaries-details/obituaries-details';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -27,7 +28,38 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Settings', component: SettingsPage}
     ];
+    this.pushsetup();
 
+  }
+    pushsetup() {
+    const options: PushOptions = {
+     android: {
+     },
+     ios: {
+         alert: 'true',
+         badge: true,
+         sound: 'false'
+     },
+     windows: {}
+  };
+
+  const pushObject: PushObject = this.push.init(options);
+
+  pushObject.on('notification').subscribe((notification: any) => {
+    if (notification.additionalData.foreground) {
+      let youralert = this.alertCtrl.create({
+        title: 'New Push notification',
+        message: notification.message
+      });
+      youralert.present();
+    }
+  });
+
+  pushObject.on('registration').subscribe((registration: any) => {
+     //do whatever you want with the registration ID
+  });
+
+  pushObject.on('error').subscribe(error => alert('Error with Push plugin' + error));
   }
 
   initializeApp() {
