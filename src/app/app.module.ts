@@ -13,30 +13,51 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { Firebase } from '@ionic-native/firebase';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+var config = {
+  apiKey: "AIzaSyBFCjD5eDKJKTm1pWZejYcsLR_g89kxHmw",
+  authDomain: "news-reporter-22b34.firebaseapp.com",
+  databaseURL: "https://news-reporter-22b34.firebaseio.com",
+  projectId: "news-reporter-22b34",
+  storageBucket: "news-reporter-22b34.appspot.com",
+  messagingSenderId: "239059696185"
+};
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     SettingsPage,
-    ListPage
+    ListPage,
+    LoginPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     SuperTabsModule.forRoot(),
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     SettingsPage,
-    ListPage
+    ListPage,
+    LoginPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Firebase,
     Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]

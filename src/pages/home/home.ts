@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { SuperTabsModule } from 'ionic2-super-tabs';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-home',
@@ -25,5 +26,11 @@ export class HomePage {
   des: any = "DesPage";
   videos: any = "VideosPage";
   limericks: any = "LimericksPage";
+  
+  constructor(private auth: AngularFireAuth) { }
+
+  signOut() {
+    this.auth.auth.signOut();
+  }
 
 }

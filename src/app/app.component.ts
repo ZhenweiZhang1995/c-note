@@ -7,7 +7,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SettingsPage } from '../pages/settings/settings';
+import { Firebase } from '@ionic-native/firebase';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,9 +23,15 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController) {
-    this.initializeApp();
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController, public afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe(auth => {
+      if(!auth)
+        this.rootPage = LoginPage;
+      else
+        this.rootPage = HomePage;
+    });
 
+    this.initializeApp();
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },

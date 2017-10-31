@@ -1,0 +1,27 @@
+page-login {
+  .invalid {
+    border-bottom: 1px solid #FF6153;
+  }
+  .logo{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  ion-list{
+    width: 90%;
+    margin-left: 5%;
+  }
+  .buttons{
+    width: 90%;
+    margin-left: 5%;
+  }
+  button.login{
+    background-color: #014a81 !important;
+  }
+  button.sign{
+    background-color: #74706f !important;
+  }
+  h5{
+    text-align: center;
+  }
+}

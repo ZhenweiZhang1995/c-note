@@ -1,0 +1,25 @@
+<!-- login.html -->
+<ion-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="logo">
+    <img class="centerImage" src="assets/title.png" alt="" height="110px" style="margin-top:-5px;"/>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>E-Mail</ion-label>
+      <ion-input type="email" [(ngModel)]="loginData.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="loginData.password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="buttons">
+    <button class="login" full ion-button  (click)="login()" [disabled]="!loginData.email || !loginData.password">Login</button>
+    <h5>or</h5>
+    <button class="sign" full ion-button  (click)="signup()">Signup for an Account</button>
+  </div>
+
+</ion-content>
