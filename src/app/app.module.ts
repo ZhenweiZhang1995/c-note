@@ -12,12 +12,12 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SuperTabsModule } from 'ionic2-super-tabs';
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
-import { Firebase } from '@ionic-native/firebase';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { OneSignal } from '@ionic-native/onesignal';
+import { DatabaseserviceProvider } from '../providers/databaseservice/databaseservice';
 
 var config = {
   apiKey: "AIzaSyBFCjD5eDKJKTm1pWZejYcsLR_g89kxHmw",
@@ -57,9 +57,9 @@ var config = {
   providers: [
     StatusBar,
     SplashScreen,
-    Firebase,
-    Push,
+    OneSignal,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatabaseserviceProvider
   ]
 })
 export class AppModule {}

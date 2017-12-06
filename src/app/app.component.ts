@@ -7,11 +7,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SettingsPage } from '../pages/settings/settings';
-import { Firebase } from '@ionic-native/firebase';
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../pages/login/login';
+import { OneSignal } from '@ionic-native/onesignal';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +22,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public push: Push, public alertCtrl: AlertController, public afAuth: AngularFireAuth) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public afAuth: AngularFireAuth, private _OneSignal: OneSignal) {
     this.afAuth.authState.subscribe(auth => {
       if(!auth)
         this.rootPage = LoginPage;
@@ -35,41 +34,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
       { title: 'Settings', component: SettingsPage}
     ];
-    this.pushsetup();
 
-  }
-    pushsetup() {
-    const options: PushOptions = {
-     android: {
-     },
-     ios: {
-         alert: 'true',
-         badge: true,
-         sound: 'false'
-     },
-     windows: {}
-  };
 
-  const pushObject: PushObject = this.push.init(options);
 
-  pushObject.on('notification').subscribe((notification: any) => {
-    if (notification.additionalData.foreground) {
-      let youralert = this.alertCtrl.create({
-        title: 'New Push notification',
-        message: notification.message
-      });
-      youralert.present();
-    }
-  });
-
-  pushObject.on('registration').subscribe((registration: any) => {
-     //do whatever you want with the registration ID
-  });
-
-  pushObject.on('error').subscribe(error => alert('Error with Push plugin' + error));
   }
 
   initializeApp() {
@@ -78,6 +47,25 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      if (this.platform.is('cordova')){
+
+      this._OneSignal.startInit("b970eadf-a1c3-4009-9fcd-09e9cd982081", "239059696185");
+      this._OneSignal.inFocusDisplaying(this._OneSignal.OSInFocusDisplayOption.Notification);
+      this._OneSignal.setSubscription(true);
+      this._OneSignal.handleNotificationReceived().subscribe(() => {
+        // handle received here how you wish.
+      });
+      this._OneSignal.handleNotificationOpened().subscribe((result) => {
+        // handle opened here how you wish.
+
+        result.notification.payload.additionalData.targetUrl;
+      });
+      this._OneSignal.endInit();
+
+      }
+
+
     });
   }
 
