@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content padding>
-  <img src="{{gallery.thumbnail}}" alt="" class="title_pic"/>
+  <img src="{{gallery.thumbnail_images.medium_large.url}}" alt="" class="title_pic"/>
   <h3 [innerHTML] = "gallery.title"></h3>
   <span class = "author">by {{gallery.author.name}}</span>
   <div class="content" [innerHTML] = "'<p>' + gallery.content + '</p>'"></div>

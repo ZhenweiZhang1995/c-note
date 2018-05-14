@@ -34,7 +34,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Settings', component: SettingsPage}
+      { title: 'Sections', component: ListPage},
+      { title: 'Settings', component: SettingsPage},
+      { title: 'Logout', component: null}
     ];
 
 
@@ -72,6 +74,12 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if(page.component) {
+        this.nav.setRoot(page.component);
+    } else {
+        // Since the component is null, this is the logout option
+        //this.auth.auth.signOut();
+    }
+
   }
 }

@@ -12,7 +12,7 @@
 
     <ion-list class= "news_width">
       <ion-item *ngFor="let new1 of news" (click)="openDetails(new1)">
-        <img src="{{new1.thumbnail}}" alt="" class="title_pic"/>
+        <img src="{{new1.thumbnail_images.medium_large.url}}" alt="" class="title_pic"/>
 
         <div class="title" [innerHTML] = "new1.title_plain"></div>
       </ion-item>

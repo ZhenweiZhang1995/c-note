@@ -16,7 +16,7 @@
 
   <ion-list class= "sport_width">
     <ion-item *ngFor="let sport of sports" (click)="openDetails(sport)">
-      <img src="{{sport.thumbnail}}" alt="" class="title_pic"/>
+      <img src="{{sport.thumbnail_images.medium_large.url}}" alt="" class="title_pic"/>
 
       <div class="title" [innerHTML] = "sport.title_plain"></div>
     </ion-item>

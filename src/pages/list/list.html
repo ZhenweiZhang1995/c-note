@@ -1,27 +1,33 @@
-<ion-header>
+<ion-header no-border>
+
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <!-- <ion-title> -->
-      <div class="banner">
-        <img src="../assets/banner.png" alt="" height="40px"/>
-      </div>
-    <!-- </ion-title> -->
+    <img src="assets/banner.png" alt="" height="50px" width="280px" style="margin-top:8px;margin-left:10px;"/>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <!-- <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
+      {{item}}
     </button>
+  </ion-list> -->
+
+  <ion-list>
+    <button ion-item (click)="pushNewsPage()">News</button>
+    <button ion-item (click)="pushSportsPage()">Sports</button>
+    <button ion-item (click)="pushObituaries()">Obituaries</button>
+    <button ion-item (click)="pushGallery()">Gallery</button>
+    <button ion-item (click)="pushPodcast()">Podcast</button>
+    <button ion-item (click)="pushUnderwriting()">Underwriting</button>
+    <button ion-item (click)="pushEditorials()">Editorials</button>
+    <button ion-item (click)="pushVideosPage()">Videos</button>
+    <button ion-item (click)="pushLimericksPage()">Limericks</button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
+
+
+  <!-- <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem}}</b>
+  </div> -->
 </ion-content>

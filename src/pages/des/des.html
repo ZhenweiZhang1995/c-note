@@ -12,7 +12,7 @@
 <ion-content padding>
   <ion-list class= "des_width">
     <ion-item *ngFor="let de of des" (click)="openDetails(de)">
-      <img src="{{de.thumbnail}}" alt="" class="title_pic"/>
+      <!-- <img src="{{de.thumbnail_images.medium_large.url}}" alt="" class="title_pic"/> -->
 
       <div class="title" [innerHTML] = "de.title_plain"></div>
     </ion-item>

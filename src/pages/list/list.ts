@@ -1,31 +1,51 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { App } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
+
+
 export class ListPage {
+
+  public newsPage = 'NewsPage';
+
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: string[];
+  news: any = 'NewsPage';
+  sports: any = "SportsPage";
+  galleries: any = "GalleriesPage";
+  obituaries: any = "ObituariesPage";
+  podcast: any = "PodcastPage";
+  underwriting: any = "UnderwritingPage";
+  editorials: any = "EditorialsPage";
+  des: any = "DesPage";
+  videos: any = "VideosPage";
+  limericks: any = "LimericksPage";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private app: App) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+
+    this.items = [
+    "News",
+    "Sports",
+    "Obituaries",
+    "Gallery",
+    "Podcast",
+    "Underwriting",
+    "Editorials",
+    "Digital Edition",
+    "Videos",
+    "Limericks"
+    ];
+
   }
 
   itemTapped(event, item) {
@@ -34,4 +54,42 @@ export class ListPage {
       item: item
     });
   }
+
+  pushNewsPage(){
+  this.app.getRootNav().push('NewsPage');
+  }
+
+  pushSportsPage(){
+  this.app.getRootNav().push('SportsPage');
+  }
+
+  pushObituaries(){
+  this.app.getRootNav().push('ObituariesPage');
+  }
+
+  pushGallery(){
+  this.app.getRootNav().push('GalleriesPage');
+  }
+
+  pushPodcast(){
+  this.app.getRootNav().push('PodcastPage');
+  }
+
+  pushUnderwriting(){
+  this.app.getRootNav().push('UnderwritingPage');
+  }
+
+  pushEditorials(){
+  this.app.getRootNav().push('EditorialsPage');
+  }
+
+  pushVideosPage(){
+  this.app.getRootNav().push('VideosPage');
+  }
+
+  pushLimericksPage(){
+  this.app.getRootNav().push('LimericksPage');
+  }
+
+
 }

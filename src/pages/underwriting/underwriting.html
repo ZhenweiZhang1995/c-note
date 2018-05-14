@@ -10,7 +10,7 @@
 
   <ion-list class= "underwriting_width">
     <ion-item *ngFor="let underwriting of underwritings" (click)="openDetails(underwriting)">
-      <img src="{{underwriting.thumbnail}}" alt="" class="title_pic"/>
+      <img src="{{underwriting.thumbnail_images.medium_large.url}}" alt="" class="title_pic"/>
 
       <div class="title" [innerHTML] = "underwriting.title_plain"></div>
     </ion-item>

@@ -14,9 +14,9 @@
 
 
 <ion-content padding>
-  <img src="{{new1.thumbnail}}" alt="" class="title_pic"/>
+  <img src="{{new1.thumbnail_images.medium_large.url}}" alt="" class="title_pic"/>
   <div [innerHTML] = "'<h3>' + new1.title + '</h3>'"></div>
   <!-- <h3>{{new1.title}}</h3> -->
-  <span class = "author">by {{new1.author.name}}</span>
+  <!-- <span class = "author">by {{new1.author.name}}</span> -->
   <div class="content" [innerHTML] = "'<p>' + new1.content + '</p>'"></div>
 </ion-content>

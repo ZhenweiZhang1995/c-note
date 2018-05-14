@@ -12,7 +12,6 @@
 
     <ion-list class= "videos_width">
       <ion-item *ngFor="let video of videos" (click)="openDetails(video)">
-        <img src="{{video.thumbnail}}" alt="" class="title_pic"/>
 
         <div class="title" [innerHTML] = "video.title_plain"></div>
       </ion-item>
